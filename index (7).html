@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metro Atlanta School Board Guide — for families</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Note: GeorgiaCAN's brand font "Circular Pro" is a paid, licensed font not available on public font CDNs.
+     Poppins is substituted here as the closest free geometric sans. Swap the @font-face / link above
+     for a self-hosted Circular Pro file if you have a license, and font names below will follow suit. -->
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --paper-2:#F1F2EF;
+    --ink:#26354D;
+    --ink-soft:#5B6B84;
+    --gold:#FF704E;
+    --gold-dark:#E85A38;
+    --teal:#77C86F;
+    --teal-dark:#4C9E46;
+    --brick:#D6432E;
+    --line: rgba(38,53,77,0.13);
+    --line-strong: rgba(38,53,77,0.26);
+    --shadow: 0 2px 10px rgba(38,53,77,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:28px 16px 60px;
+  }
+  .app{
+    width:100%;
+    max-width:720px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  /* ---------- Header ---------- */
+  .masthead{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding-bottom:16px;
+    border-bottom:2.5px solid var(--ink);
+  }
+  .seal{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--ink);
+    flex:none;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .seal::before{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border-radius:50%;
+    border:1.5px solid var(--gold);
+  }
+  .seal span{
+    font-family:'Poppins',sans-serif;
+    font-size:11px;
+    letter-spacing:0.3px;
+    color:var(--paper);
+    font-weight:500;
+  }
+  .masthead-text h1{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:22px;
+    margin:0 0 2px;
+    letter-spacing:-0.2px;
+  }
+  .masthead-text p{
+    margin:0;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-family:'Poppins',sans-serif;
+    letter-spacing:0.2px;
+  }
+
+  /* ---------- District switcher ---------- */
+  .switcher{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .switcher-btn{
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;
+    font-weight:500;
+    background:#fff;
+    border:1px solid var(--line-strong);
+    color:var(--ink-soft);
+    padding:7px 12px;
+    border-radius:20px;
+    cursor:pointer;
+  }
+  .switcher-btn:hover{border-color:var(--teal); color:var(--ink);}
+  .switcher-btn.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+
+  /* ---------- Notice strip (signature element) ---------- */
+  .notice{
+    background:#FFFFFF;
+    border:1px solid var(--line);
+    border-left:5px solid var(--teal);
+    border-radius:14px;
+    padding:16px 18px 14px;
+    position:relative;
+    box-shadow:var(--shadow);
+  }
+  .notice-tag{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    padding:4px 11px;
+    border-radius:20px;
+    margin-bottom:8px;
+  }
+  .notice-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 22px;
+    margin-top:6px;
+  }
+  .notice-item dt{
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:var(--teal-dark);
+    margin:0 0 3px;
+  }
+  .notice-item dd{
+    margin:0;
+    font-size:13.5px;
+    line-height:1.45;
+    color:var(--ink);
+  }
+  .notice-foot{
+    margin:12px 0 0;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+    border-top:1px solid var(--line);
+    padding-top:9px;
+  }
+  .notice-foot a{color:var(--teal-dark);}
+
+  /* ---------- Member finder ---------- */
+  .finder{
+    background:#FFFFFF;
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:16px 18px 18px;
+  }
+  .finder-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .finder-head h2{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:16.5px;
+    margin:0;
+  }
+  .finder-head span{
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+  }
+  .finder-controls{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .finder-controls select,
+  .finder-controls input{
+    border:1px solid var(--line-strong);
+    background:#fff;
+    border-radius:10px;
+    padding:9px 11px;
+    font-size:13.5px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+  }
+  .finder-controls select{flex:1; min-width:140px;}
+  .finder-controls input{flex:2; min-width:160px;}
+  .finder-controls select:focus,
+  .finder-controls input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+
+  .member-card{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  .member-avatar{
+    flex:none;
+    width:44px;height:44px;
+    border-radius:50%;
+    background:var(--teal);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:16px;
+  }
+  .member-info{flex:1;}
+  .member-info .name{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    margin:0 0 3px;
+  }
+  .member-badges{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .badge{
+    font-family:'Poppins',sans-serif;
+    font-size:10px;
+    letter-spacing:0.3px;
+    padding:2px 8px;
+    border-radius:7px;
+  }
+  .badge.district{background:rgba(119,200,111,0.16); color:var(--teal-dark);}
+  .badge.chair{background:rgba(255,112,78,0.16); color:var(--gold-dark);}
+  .member-info p{
+    margin:0;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .member-info a{
+    color:var(--teal-dark);
+    font-weight:500;
+    font-size:12.5px;
+  }
+  .finder-empty{
+    font-size:13px;
+    color:var(--ink-soft);
+    padding:10px 2px;
+  }
+  .finder-foot{
+    margin:12px 0 0;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    line-height:1.55;
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+  .finder-foot a{color:var(--teal-dark);}
+
+  /* ---------- Comment drafter ---------- */
+  .drafter{
+    background:#FFFFFF;
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:16px 18px 18px;
+  }
+  .drafter-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:4px;
+  }
+  .drafter-head h2{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:16.5px;
+    margin:0;
+  }
+  .drafter-head span{
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+  }
+  .drafter-sub{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+    line-height:1.5;
+  }
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .field{margin-bottom:10px;}
+  .field label{
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+    color:var(--teal-dark);
+    margin-bottom:5px;
+  }
+  .field label .opt{
+    color:var(--ink-soft);
+    text-transform:none;
+    letter-spacing:0;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+  }
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    border:1px solid var(--line-strong);
+    background:#fff;
+    border-radius:10px;
+    padding:9px 11px;
+    font-size:13.5px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    resize:vertical;
+  }
+  .field textarea{min-height:56px; line-height:1.5;}
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .field-error{
+    color:var(--brick);
+    font-size:11.5px;
+    margin-top:4px;
+    display:none;
+  }
+  .field.has-error input,
+  .field.has-error textarea{border-color:var(--brick);}
+  .field.has-error .field-error{display:block;}
+
+  .generate-btn{
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    border-radius:10px;
+    padding:10px 20px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    margin-top:4px;
+  }
+  .generate-btn:hover{background:#1D2A3D;}
+  .generate-btn:active{transform:scale(0.98);}
+
+  .draft-output{
+    margin-top:18px;
+    border-top:1px solid var(--line);
+    padding-top:16px;
+    display:none;
+  }
+  .draft-output.visible{display:block;}
+  .draft-stats{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+  }
+  .stat{
+    font-family:'Poppins',sans-serif;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+  .stat strong{color:var(--ink); font-weight:500;}
+  .time-badge{
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    padding:3px 9px;
+    border-radius:7px;
+    text-transform:uppercase;
+    letter-spacing:0.3px;
+  }
+  .time-badge.ok{background:rgba(119,200,111,0.16); color:var(--teal-dark);}
+  .time-badge.warn{background:rgba(255,112,78,0.16); color:var(--gold-dark);}
+  .time-badge.over{background:rgba(214,67,46,0.14); color:var(--brick);}
+  #draftText{
+    width:100%;
+    min-height:220px;
+    border:1px solid var(--line-strong);
+    background:var(--paper-2);
+    border-radius:10px;
+    padding:14px 16px;
+    font-family:'Poppins',sans-serif;
+    font-size:14.5px;
+    line-height:1.7;
+    color:var(--ink);
+    resize:vertical;
+  }
+  #draftText:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .draft-actions{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+    align-items:center;
+  }
+  .copy-btn{
+    background:#fff;
+    border:1px solid var(--line-strong);
+    border-radius:10px;
+    padding:8px 14px;
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .copy-btn:hover{background:var(--paper-2); border-color:var(--teal);}
+  .copy-confirm{
+    font-size:12px;
+    color:var(--teal-dark);
+    font-family:'Poppins',sans-serif;
+    opacity:0;
+    transition:opacity .15s;
+  }
+  .copy-confirm.show{opacity:1;}
+
+  /* ---------- Practice timer ---------- */
+  .timer-block{
+    margin-top:18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 18px;
+    flex-wrap:wrap;
+  }
+  .timer-display{
+    font-family:'Poppins',sans-serif;
+    font-size:32px;
+    font-weight:500;
+    color:var(--ink);
+    min-width:96px;
+  }
+  .timer-display.warn{color:var(--gold-dark);}
+  .timer-display.over{color:var(--brick);}
+  .timer-label{
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+    color:var(--ink-soft);
+    margin-bottom:3px;
+  }
+  .timer-controls{display:flex; gap:8px;}
+  .timer-controls button{
+    background:#fff;
+    border:1px solid var(--line-strong);
+    border-radius:10px;
+    padding:7px 14px;
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .timer-controls button:hover{background:#fff; border-color:var(--teal);}
+  .timer-controls button.primary{background:var(--teal); color:#fff; border-color:var(--teal);}
+  .timer-controls button.primary:hover{background:var(--teal-dark);}
+
+  .drafter-foot{
+    margin:16px 0 0;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+  .drafter-foot a{color:var(--teal-dark);}
+  .drafter-foot ul{margin:6px 0 0; padding-left:18px;}
+  .drafter-foot li{margin-bottom:3px;}
+
+  @media (max-width:520px){
+    .field-row{grid-template-columns:1fr;}
+    .timer-block{justify-content:center; text-align:center;}
+    .notice-grid{grid-template-columns:1fr;}
+    .masthead-text h1{font-size:18px;}
+  }
+
+  /* ---------- Chat ---------- */
+  .chat-frame{
+    background:#FFFFFF;
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    min-height:420px;
+  }
+  .chat-log{
+    flex:1;
+    padding:20px 18px 6px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    max-height:460px;
+    overflow-y:auto;
+  }
+  .msg{max-width:86%;}
+  .msg.bot{align-self:flex-start;}
+  .msg.user{align-self:flex-end;}
+
+  .bot-label{
+    font-family:'Poppins',sans-serif;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+    color:var(--teal-dark);
+    margin-bottom:4px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .bot-label::before{
+    content:"";
+    width:6px;height:6px;
+    background:var(--teal);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .bubble{
+    padding:11px 14px;
+    border-radius:8px;
+    font-size:14.5px;
+    line-height:1.62;
+  }
+  .msg.bot .bubble{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-top-left-radius:2px;
+    color:var(--ink);
+  }
+  .msg.user .bubble{
+    background:var(--ink);
+    color:var(--paper);
+    border-top-right-radius:2px;
+  }
+  .bubble p{margin:0 0 8px;}
+  .bubble p:last-child{margin-bottom:0;}
+  .bubble ul{margin:6px 0 8px;padding-left:18px;}
+  .bubble li{margin-bottom:4px;}
+  .bubble a{color:var(--teal-dark);font-weight:500;text-decoration:underline;text-decoration-color:var(--line-strong);}
+  .bubble strong{color:var(--ink);}
+  .src-tag{
+    display:inline-block;
+    margin-top:8px;
+    font-family:'Poppins',sans-serif;
+    font-size:10px;
+    color:var(--gold-dark);
+    background:rgba(255,112,78,0.12);
+    padding:2px 7px;
+    border-radius:7px;
+    letter-spacing:0.3px;
+  }
+
+  /* ---------- Chips ---------- */
+  .chips-wrap{
+    padding:8px 18px 16px;
+    border-top:1px solid var(--line);
+  }
+  .chips-label{
+    font-family:'Poppins',sans-serif;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:var(--ink-soft);
+    margin:8px 0 8px;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    background:#fff;
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    padding:6px 11px;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:background .12s, border-color .12s;
+  }
+  .chip:hover{background:var(--paper-2); border-color:var(--teal);}
+  .chip .num{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    color:var(--gold-dark);
+    font-size:12.5px;
+  }
+
+  /* ---------- Input ---------- */
+  .input-row{
+    display:flex;
+    gap:8px;
+    padding:14px 16px;
+    border-top:1.5px solid var(--ink);
+    background:var(--paper-2);
+    border-radius:0 0 14px 14px;
+  }
+  .input-row input{
+    flex:1;
+    border:1px solid var(--line-strong);
+    background:#fff;
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:14px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+  }
+  .input-row input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .input-row button{
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:0 18px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+  }
+  .input-row button:hover{background:var(--teal-dark);}
+  .input-row button:active{transform:scale(0.98);}
+
+  .footnote{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .footnote a{color:var(--teal-dark);}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="masthead">
+    <div class="seal"><span id="sealText">CCPS</span></div>
+    <div class="masthead-text">
+      <h1>Board meeting guide</h1>
+      <p id="mastheadSub">For Clayton County Public Schools families — Jonesboro, GA</p>
+    </div>
+  </div>
+
+  <div class="switcher" id="switcher"></div>
+
+  <div class="notice">
+    <span class="notice-tag">Standing notice</span>
+    <div class="notice-grid" id="noticeGrid"></div>
+    <p class="notice-foot" id="noticeFoot"></p>
+  </div>
+
+  <div class="finder">
+    <div class="finder-head">
+      <h2>Find your board member</h2>
+      <span id="finderCount"></span>
+    </div>
+    <div class="finder-controls">
+      <select id="districtSelect">
+        <option value="">Select your district...</option>
+      </select>
+      <input id="nameSearch" type="text" placeholder="Or search by name...">
+    </div>
+    <div id="memberResult"></div>
+    <p class="finder-foot" id="finderFoot"></p>
+  </div>
+
+  <div class="drafter">
+    <div class="drafter-head">
+      <h2>Draft your public comment</h2>
+      <span id="timeLimitTag">3-min limit</span>
+    </div>
+    <p class="drafter-sub">Answer a few prompts and this builds a spoken draft. Edit it freely afterward — it's a starting point, not a script you're locked into.</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="cRole">You're speaking as</label>
+        <select id="cRole">
+          <option value="parent">A parent or guardian</option>
+          <option value="grandparent">A grandparent or family caregiver</option>
+          <option value="community">A community member</option>
+          <option value="student">A student</option>
+          <option value="staff">A district staff member</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cName">Your name <span class="opt">(optional — for your own notes)</span></label>
+        <input id="cName" type="text" placeholder="Jordan Smith">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="cSchool">School or area you're connected to <span class="opt">(optional)</span></label>
+      <input id="cSchool" type="text" placeholder="e.g. your school name, or your board district">
+    </div>
+
+    <div class="field">
+      <label for="cTopic">What are you here to talk about?</label>
+      <input id="cTopic" type="text" placeholder="e.g. the proposed change to elementary start times">
+      <p class="field-error">Add a topic so the draft has something to open with.</p>
+    </div>
+
+    <div class="field">
+      <label for="cPosition">Your main message, in a sentence or two</label>
+      <textarea id="cPosition" placeholder="e.g. I don't think moving start times 45 minutes earlier gives families enough time to adjust bus and childcare schedules."></textarea>
+      <p class="field-error">This is the core of your comment — give it a sentence or two.</p>
+    </div>
+
+    <div class="field">
+      <label for="cReasons">Why it matters <span class="opt">(one point per line — optional but strengthens your comment)</span></label>
+      <textarea id="cReasons" placeholder="Working families need more than a few weeks' notice to change routines&#10;Younger students already struggle with early start times&#10;Neighboring districts phased in similar changes over a full year"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="cExperience">A personal example, if you have one <span class="opt">(optional)</span></label>
+      <textarea id="cExperience" placeholder="e.g. My daughter already catches the bus at 6:10am — an earlier start means she's out the door before sunrise."></textarea>
+    </div>
+
+    <div class="field">
+      <label for="cAsk">What do you want the Board to do?</label>
+      <textarea id="cAsk" placeholder="e.g. Delay the vote until families have had a chance to weigh in at a town hall."></textarea>
+      <p class="field-error">End with a clear, specific ask — it's the part the Board remembers.</p>
+    </div>
+
+    <div class="field">
+      <label for="cTone">Tone</label>
+      <select id="cTone">
+        <option value="concerned">Concerned — raising a problem</option>
+        <option value="supportive">Appreciative — thanking the Board, with a request</option>
+        <option value="neutral">Neutral — informational</option>
+      </select>
+    </div>
+
+    <button class="generate-btn" id="generateBtn">Generate draft</button>
+
+    <div class="draft-output" id="draftOutput">
+      <div class="draft-stats">
+        <span class="stat"><strong id="wordCount">0</strong> words</span>
+        <span class="stat">~<strong id="estTime">0:00</strong> at a natural reading pace</span>
+        <span class="time-badge ok" id="timeBadge">within limit</span>
+      </div>
+      <textarea id="draftText" spellcheck="true"></textarea>
+      <div class="draft-actions">
+        <button class="copy-btn" id="copyBtn">Copy draft</button>
+        <span class="copy-confirm" id="copyConfirm">Copied</span>
+      </div>
+    </div>
+
+    <div class="timer-block">
+      <div>
+        <div class="timer-label">Practice timer</div>
+        <div class="timer-display" id="timerDisplay">3:00</div>
+      </div>
+      <div class="timer-controls">
+        <button class="primary" id="timerStart">Start</button>
+        <button id="timerReset">Reset</button>
+      </div>
+    </div>
+
+    <div class="drafter-foot">
+      Before you submit, double check:
+      <ul id="commentChecklist"></ul>
+    </div>
+  </div>
+
+  <div class="chat-frame">
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chips-wrap">
+      <div class="chips-label">Common questions</div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="input-row">
+      <input id="userInput" type="text" placeholder="Ask about meeting times, public comment, agendas..." autocomplete="off">
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <p class="footnote">This is an unofficial guide built from each district's published board policies and pages — not an official district product.<br>For anything time-sensitive, confirm with the district's Board Office directly.</p>
+
+</div>
+
+<script>
+/* =========================================================
+   DISTRICT DATA
+   ========================================================= */
+const DISTRICTS = {
+
+  clayton: {
+    seal: "CCPS",
+    name: "Clayton County Public Schools",
+    sub: "For Clayton County Public Schools families — Jonesboro, GA",
+    switcherLabel: "Clayton",
+    timeLimit: "3-min limit",
+    timerSeconds: 180,
+    speakingRateWpm: 140,
+    meetingCadence: "Regular Board Meetings are typically held once a month, most often on a Monday evening, usually starting around 6:00 p.m. Work Sessions (planning meetings for the next Board Meeting) happen on a separate Monday.",
+    meetingWhere: "Most meetings are at the CCPS Administrative Complex, 1058 Fifth Avenue, Jonesboro, GA 30236. Some stretches of the year move to the Performing Arts Center, 2530 Mt. Zion Parkway, Jonesboro, GA 30236 — always check that month's agenda for the room.",
+    officialScheduleUrl: "https://www.clayton.k12.ga.us/administration/board-of-education/board-meetings/board-meeting-schedule",
+    watchText: "Meetings are livestreamed and later archived on the district's YouTube channel.",
+    watchUrl: "https://www.youtube.com/c/ccpsnews/videos",
+    agendaText: "Agendas, supporting documents, and approved minutes are posted on the district's eBoard system (Diligent/Simbli).",
+    agendaUrl: "https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=4038",
+    policyText: "Board policies — including the public comment policy — are searchable on the same eBoard system.",
+    policyUrl: "https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=4038",
+    publicCommentPolicyName: "Board Policy BCBI",
+    publicCommentLines: [
+      "Email boepublic@clayton.k12.ga.us with your topic and contact information, before 3:00 p.m. on the day of the meeting.",
+      "If slots remain open after 3:00 p.m., sign up in person in the lobby, up to 15 minutes before the meeting starts.",
+      "Up to 10 speakers are allowed at a Regular Meeting, 3 minutes each."
+    ],
+    restrictedTopics: "individual personnel issues or confidential student matters",
+    contactLines: [
+      "Board Liaison Kim Blackwood — 404-361-7352",
+      "Public comment sign-up: boepublic@clayton.k12.ga.us",
+      "Main district line: 770-473-2700 (1058 Fifth Avenue, Jonesboro, GA 30236)"
+    ],
+    worksessionText: "A Work Session is a planning meeting where the Board previews and discusses items ahead of the following month's Board Meeting — the session where formal votes and official action typically happen. Both are open to the public.",
+    memberLabel: "District",
+    memberBioBase: "https://www.clayton.k12.ga.us/administration/board-of-education/board-members/",
+    boardPageUrl: "https://www.clayton.k12.ga.us/administration/board-of-education/board-members",
+    districtMapUrl: "https://www.clayton.k12.ga.us/fs/resource-manager/view/2e675726-cfd9-4e32-a7d7-20a02a3c9218",
+    districtMapNote: "Board election districts follow county lines, not school attendance zones, so your child's school alone won't tell you which one you're in.",
+    members: [
+      { label: "District 1", name: "Jasmine Bowles", chair: false, vicechair: false, slug: "jasmine-bowles" },
+      { label: "District 2", name: "Mark Christmas", chair: false, vicechair: false, slug: "mark-christmas" },
+      { label: "District 3", name: "Dr. Jessie Goree", chair: false, vicechair: false, slug: "jessie-goree" },
+      { label: "District 4", name: "Victoria Williams", chair: false, vicechair: false, slug: "victoria-williams" },
+      { label: "District 5", name: "Dr. Deatrice \u201cDee\u201d Haney", chair: false, vicechair: false, slug: "dr-deatrice-dee-haney" },
+      { label: "District 6", name: "Mary Baker", chair: false, vicechair: false, slug: "mary-baker" },
+      { label: "District 7", name: "Sabrina Hill", chair: false, vicechair: false, slug: "sabrina-hill" },
+      { label: "District 8", name: "Joy Tellis Cooper", chair: false, vicechair: false, slug: "joy-tellis-cooper" },
+      { label: "District 9", name: "Benjamin Straker, Sr.", chair: true, vicechair: false, slug: "benjamin-straker" }
+    ]
+  },
+
+  fulton: {
+    seal: "FCS",
+    name: "Fulton County Schools",
+    sub: "For Fulton County Schools families — Sandy Springs / Union City, GA",
+    switcherLabel: "Fulton",
+    timeLimit: "3-min limit",
+    timerSeconds: 180,
+    speakingRateWpm: 140,
+    meetingCadence: "The Board holds a monthly Work Session (daytime, at the North Learning Center — executive session, workshop presentations, then agenda review) and a Board Meeting the following week, in the evening, with recognitions and public comment starting around 6:00 p.m.",
+    meetingWhere: "North Learning Center: 450 Northridge Parkway, Sandy Springs, GA. South Learning Center: 4025 Flat Shoals Road, Union City, GA 30291. Confirm the location and time on that month's Board Calendar — they do shift.",
+    officialScheduleUrl: "https://www.fultonschools.org/fcs-board-of-education/meeting-calendar",
+    watchText: "Meetings are streamed live on the FCS homepage, with recordings usually available within about 48 hours.",
+    watchUrl: "https://www.fultonschools.org/",
+    agendaText: "Agendas and supporting documents are posted on BoardDocs.",
+    agendaUrl: "https://go.boarddocs.com/ga/fcss/Board.nsf/Public",
+    policyText: null,
+    policyUrl: null,
+    publicCommentPolicyName: "Board Policy BCBI",
+    publicCommentLines: [
+      "Sign up in advance through the electronic sign-up on the Board Services website, no earlier than two weeks before the meeting and no later than noon on the day of the meeting.",
+      "Remaining slots can be filled in person on a sign-up sheet at the meeting site, starting a half hour before public comment begins.",
+      "The Board keeps 10 public-comment slots at both the Work Session and the Board Meeting each month, 3 minutes per slot. If you spoke one month, you can only speak again the next if slots remain after new speakers sign up."
+    ],
+    restrictedTopics: null,
+    contactLines: [
+      "Board Services Office: boardservices@fultonschools.org",
+      "Main district line: (470) 254-3600",
+      "6201 Powers Ferry Road NW, Atlanta, GA 30339"
+    ],
+    worksessionText: "The Work Session presents information about items that need Board approval; the Board Meeting the following week is where those items actually get voted on. Both are open to the public, livestreamed, and recorded.",
+    memberLabel: "District",
+    memberBioBase: null,
+    boardPageUrl: "https://www.fultonschools.org/fcs-board-of-education",
+    districtMapUrl: null,
+    districtMapNote: "Board Zone Maps (Full County, North Fulton, South Fulton) are posted on the Board page above.",
+    members: [
+      { label: "District 1", name: "Sara Gillespie", chair: false, vicechair: false, slug: null },
+      { label: "District 2", name: "Lillie Pozatek", chair: false, vicechair: false, slug: null },
+      { label: "District 3", name: "Katie Gregory", chair: false, vicechair: true, slug: null },
+      { label: "District 4", name: "Franchesca Warren", chair: false, vicechair: false, slug: null },
+      { label: "District 5", name: "Kristin McCabe", chair: true, vicechair: false, slug: null },
+      { label: "District 6", name: "Kimberly Dove", chair: false, vicechair: false, slug: null },
+      { label: "District 7", name: "Dr. Michelle Morancie", chair: false, vicechair: false, slug: null }
+    ]
+  },
+
+  aps: {
+    seal: "APS",
+    name: "Atlanta Public Schools",
+    sub: "For Atlanta Public Schools families — Atlanta, GA",
+    switcherLabel: "Atlanta (APS)",
+    timeLimit: "2-min limit",
+    timerSeconds: 120,
+    speakingRateWpm: 140,
+    meetingCadence: "The Board holds a Monthly Board Meeting, generally early in the month, plus standing committee meetings (Policy, Budget Commission, and others) throughout the month that feed into it. Dates shift — always check the calendar.",
+    meetingWhere: "Meetings are usually held at the Alonzo A. Crim Center for Learning and Leadership (CLL), 130 Trinity Avenue SW, Atlanta, GA 30303.",
+    officialScheduleUrl: "https://www.atlantapublicschools.us/boe/boe-calendar",
+    watchText: "Meetings are streamed on APS's YouTube channel.",
+    watchUrl: "https://www.atlantapublicschools.us/boe/watch-board-meetings",
+    agendaText: "Agendas and the Board Policy Manual are posted on Simbli, linked from the Board of Education page.",
+    agendaUrl: "https://www.atlantapublicschools.us/boe",
+    policyText: null,
+    policyUrl: null,
+    publicCommentPolicyName: "the Board's Public Comments policy",
+    publicCommentLines: [
+      "As of January 1, 2025, public comment is only accepted from people attending the monthly Board meeting in person at the APS Board Office, 130 Trinity Ave SW, Atlanta, GA 30303 — there's no remote sign-up.",
+      "Sign up on-site before the meeting; each speaker gets about 2 minutes.",
+      "The Board doesn't respond to comments during the meeting. For an answer, use the written comment form at the sign-in table, the 'Let's Talk' app, or contact the Board office directly."
+    ],
+    restrictedTopics: "personnel issues — contract non-renewals, hiring or firing of staff, or statements about someone's character, competence, or health. Send personnel concerns in writing to the Board instead",
+    contactLines: [
+      "Atlanta Board of Education, 130 Trinity Ave SW, Atlanta, GA 30303",
+      "Phone: 404-802-2267"
+    ],
+    worksessionText: "APS doesn't use separate \u201cWork Session\u201d terminology the way some neighboring districts do. Instead, standing committees — like the Policy Committee and Budget Commission — review items in advance, and the full Board acts on them at the Monthly Board Meeting.",
+    memberLabel: "District",
+    memberBioBase: null,
+    boardPageUrl: "https://www.atlantapublicschools.us/boe",
+    districtMapUrl: null,
+    districtMapNote: "APS has 6 geographic districts plus 3 at-large seats that represent the whole city. If you're unsure of your district, the Board office can look it up from your address.",
+    members: [
+      { label: "District 1", name: "Katie Howard", chair: false, vicechair: false, slug: null },
+      { label: "District 2", name: "Tony Mitchell", chair: false, vicechair: false, slug: null },
+      { label: "District 3", name: "Dr. Ken Zeff", chair: false, vicechair: true, slug: null },
+      { label: "District 4", name: "Jennifer McDonald", chair: false, vicechair: false, slug: null },
+      { label: "District 5", name: "Erika Y. Mitchell", chair: false, vicechair: false, slug: null },
+      { label: "District 6", name: "Patreece Hutcherson", chair: false, vicechair: false, slug: null },
+      { label: "At-Large Seat 7", name: "Alfred \u201cShivy\u201d Brooks", chair: false, vicechair: false, slug: null },
+      { label: "At-Large Seat 8", name: "Dr. Kaycee Brock", chair: false, vicechair: false, slug: null },
+      { label: "At-Large Seat 9", name: "Jessica D. Johnson", chair: true, vicechair: false, slug: null }
+    ]
+  },
+
+  dekalb: {
+    seal: "DCSD",
+    name: "DeKalb County School District",
+    sub: "For DeKalb County School District families — Stone Mountain, GA",
+    switcherLabel: "DeKalb",
+    timeLimit: "no fixed per-speaker minimum",
+    timerSeconds: 180,
+    speakingRateWpm: 140,
+    meetingCadence: "The Board holds one regular monthly meeting combining Executive Session, Work Session, and Business Meeting starting around 11:30 a.m., followed by a Community Input Session around 5:45 p.m. the same day.",
+    meetingWhere: "Meetings are held in the J. David Williamson Board Room at the Administrative and Instructional Complex (AIC), 1701 Mountain Industrial Boulevard, Stone Mountain, GA 30083.",
+    officialScheduleUrl: "https://www.dekalbschoolsga.org/board/meeting-calendar",
+    watchText: "Meetings air on DeKalb Schools TV (DSTV) and Comcast Channel 24 for DeKalb County subscribers, and stream online.",
+    watchUrl: "https://www.dekalbschoolsga.org/board/watch-meetings",
+    agendaText: "Agendas are posted on the district's Board Agendas / Meeting Calendar page.",
+    agendaUrl: "https://www.dekalbschoolsga.org/board/meeting-calendar",
+    policyText: null,
+    policyUrl: null,
+    publicCommentPolicyName: "the Public Participation policy",
+    publicCommentLines: [
+      "To speak in person at the Community Input Session, email communityinputspeakerrequests@dekalbschoolsga.org by 5:30 p.m. on the day of the meeting.",
+      "To speak virtually, your request must be submitted by 5:30 p.m. the Sunday before the meeting.",
+      "Include your name, address, topic, any previous steps you've taken to resolve the concern, and the group (if any) you represent. The public comment period runs a maximum of one hour or 20 speakers, whichever comes first."
+    ],
+    restrictedTopics: null,
+    contactLines: [
+      "Community Input speaker requests: communityinputspeakerrequests@dekalbschoolsga.org",
+      "1701 Mountain Industrial Boulevard, Stone Mountain, GA 30083",
+      "Main line: (678) 676-1200"
+    ],
+    worksessionText: "Unlike some neighboring districts, DeKalb doesn't split its Work Session onto a separate day — the Executive Session, Work Session, and Business Meeting all happen back-to-back on the same regular meeting day, with the Community Input Session later that afternoon.",
+    memberLabel: "District",
+    memberBioBase: null,
+    boardPageUrl: "https://www.dekalbschoolsga.org/board-of-education/",
+    districtMapUrl: "https://www.dekalbschoolsga.org/board/boe-district-map",
+    districtMapNote: null,
+    members: [
+      { label: "District 1", name: "Andrew Ziffer", chair: false, vicechair: false, slug: null },
+      { label: "District 2", name: "Whitney McGinniss", chair: false, vicechair: false, slug: null },
+      { label: "District 3", name: "Deirdre Pierce", chair: false, vicechair: false, slug: null },
+      { label: "District 4", name: "Allyson Gevertz", chair: true, vicechair: false, slug: null },
+      { label: "District 5", name: "Dr. Tiffany Tate-Hogan", chair: false, vicechair: false, slug: null },
+      { label: "District 6", name: "Diijon DaCosta, Sr.", chair: false, vicechair: false, slug: null },
+      { label: "District 7", name: "Awet Eyasu", chair: false, vicechair: true, slug: null }
+    ]
+  },
+
+  cobb: {
+    seal: "CCSD",
+    name: "Cobb County School District",
+    sub: "For Cobb County School District families — Marietta, GA",
+    switcherLabel: "Cobb",
+    timeLimit: "2-min limit",
+    timerSeconds: 120,
+    speakingRateWpm: 140,
+    meetingCadence: "The Board holds a monthly Work Session and a Board Meeting, each with its own public comment window. Start times vary by meeting — recent ones have started in the early afternoon and reconvened for an evening session around 7:00 p.m. — so check the posted schedule.",
+    meetingWhere: "Meetings are held at 514 Glover Street, Marietta, GA 30060. All attendees pass through Evolv security screening at the door.",
+    officialScheduleUrl: "https://www.cobbk12.org/page/40772/board-meeting-schedule",
+    watchText: "Meetings are livestreamed on the BoxCast channel. Note: since mid-2025 the Board no longer broadcasts or publishes the public-comment portion specifically, though the rest of the meeting is still streamed.",
+    watchUrl: "https://www.cobbk12.org/watch-the-board-meeting-live.96023",
+    agendaText: "Agendas are posted through the Board Agenda Portal, linked from the meeting schedule page.",
+    agendaUrl: "https://www.cobbk12.org/page/40772/board-meeting-schedule",
+    policyText: null,
+    policyUrl: null,
+    publicCommentPolicyName: "the Public Participation in Board Meetings policy",
+    publicCommentLines: [
+      "Sign-up is in person, first-come first-served, on a physical sign-up sheet available starting 30 minutes before the meeting — there's no advance online sign-up.",
+      "Each speaker gets 2 minutes.",
+      "You may only sign up to speak at either the Work Session or the Board Meeting each month, not both."
+    ],
+    restrictedTopics: null,
+    contactLines: [
+      "514 Glover Street, Marietta, GA 30060",
+      "Main line: 770-426-3300"
+    ],
+    worksessionText: "Cobb holds a separate Work Session and Board Meeting most months, each with its own public comment period — signing up for one uses your slot for that meeting only, not both.",
+    memberLabel: "Post",
+    memberBioBase: null,
+    boardPageUrl: "https://www.cobbk12.org/board",
+    districtMapUrl: null,
+    districtMapNote: "Cobb calls its seven board seats \u201cposts\u201d rather than districts. The Board Post Map is on the Board page above.",
+    members: [
+      { label: "Post 1", name: "Randy Scamihorn", chair: true, vicechair: false, slug: null },
+      { label: "Post 2", name: "Becky Sayler", chair: false, vicechair: false, slug: null },
+      { label: "Post 3", name: "Leroy \u201cTre\u2019\u201d Hutchins", chair: false, vicechair: false, slug: null },
+      { label: "Post 4", name: "David Chastain", chair: false, vicechair: true, slug: null },
+      { label: "Post 5", name: "John Cristadoro", chair: false, vicechair: false, slug: null },
+      { label: "Post 6", name: "Nichelle Davis", chair: false, vicechair: false, slug: null },
+      { label: "Post 7", name: "Brad Wheeler", chair: false, vicechair: false, slug: null }
+    ]
+  },
+
+  gwinnett: {
+    seal: "GCPS",
+    name: "Gwinnett County Public Schools",
+    sub: "For Gwinnett County Public Schools families — Suwanee, GA",
+    switcherLabel: "Gwinnett",
+    timeLimit: "3-min limit",
+    timerSeconds: 180,
+    speakingRateWpm: 140,
+    meetingCadence: "The Board holds a Work Session on the third Tuesday of each month at 6:00 p.m., and a Business Meeting on the third Thursday at 7:00 p.m. Dates shift some months — always check the posted schedule.",
+    meetingWhere: "Both meetings are held at the Instructional Support Center, 437 Old Peachtree Road NW, Suwanee, GA 30024.",
+    officialScheduleUrl: "https://www.gcpsk12.org/about-us/board/board-meeting-schedule",
+    watchText: "Meetings are livestreamed and archived through GCPS TV.",
+    watchUrl: "https://www.gcpsk12.org/get-connected/gcps-tv",
+    agendaText: "Agendas are posted on BoardDocs.",
+    agendaUrl: "https://go.boarddocs.com/ga/gcps/Board.nsf/Public",
+    policyText: null,
+    policyUrl: null,
+    publicCommentPolicyName: "the \u201cHow to Address the Board\u201d procedures",
+    publicCommentLines: [
+      "Notify the Superintendent's Office in writing by noon on the Wednesday immediately before the Board meeting, using the Request Form on the district website.",
+      "A maximum of 30 speaker slots are available each month, with 15 more accepted as alternates if any of the first 30 cancel by 5 p.m. the day before.",
+      "Each speaker gets up to 3 minutes and can't yield their time to someone else."
+    ],
+    restrictedTopics: "Speakers are asked to first try resolving issues through the appropriate school or district administrator before bringing them to the Board",
+    contactLines: [
+      "Coordinator of Board Services: 678-301-6040, MySchoolBoard@gcpsk12.org",
+      "437 Old Peachtree Road NW, Suwanee, GA 30024"
+    ],
+    worksessionText: "The Work Session (third Tuesday) is where the Board previews and discusses items; the Business Meeting (third Thursday) is where those items typically come up for a vote. Both are open to the public.",
+    memberLabel: "District",
+    memberBioBase: null,
+    boardPageUrl: "https://www.gcpsk12.org/about-us/board",
+    districtMapUrl: null,
+    districtMapNote: "Gwinnett board districts are based on your home address, not the school your child attends. Email MySchoolBoard@gcpsk12.org to confirm your district.",
+    members: [
+      { label: "District I", name: "Rachel Ruffin Stone", chair: false, vicechair: false, slug: null },
+      { label: "District II", name: "Steven B. Knudsen", chair: false, vicechair: false, slug: null },
+      { label: "District III", name: "Steve Gasper", chair: false, vicechair: false, slug: null },
+      { label: "District IV", name: "Dr. Adrienne Simmons", chair: false, vicechair: true, slug: null },
+      { label: "District V", name: "Dr. Tarece Johnson-Morgan", chair: true, vicechair: false, slug: null }
+    ]
+  }
+
+};
+
+const DISTRICT_ORDER = ["clayton", "fulton", "aps", "dekalb", "cobb", "gwinnett"];
+let currentDistrictId = "clayton";
+
+function d(){ return DISTRICTS[currentDistrictId]; }
+function fieldEl(id){ return document.getElementById(id); }
+function escapeHtml(str){
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* =========================================================
+   SWITCHER
+   ========================================================= */
+function renderSwitcher(){
+  const wrap = document.getElementById("switcher");
+  wrap.innerHTML = "";
+  DISTRICT_ORDER.forEach(id => {
+    const btn = document.createElement("button");
+    btn.className = "switcher-btn" + (id === currentDistrictId ? " active" : "");
+    btn.textContent = DISTRICTS[id].switcherLabel;
+    btn.addEventListener("click", () => {
+      if(id === currentDistrictId) return;
+      currentDistrictId = id;
+      renderAll();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+/* =========================================================
+   MASTHEAD + NOTICE
+   ========================================================= */
+function renderMasthead(){
+  document.getElementById("sealText").textContent = d().seal;
+  document.getElementById("mastheadSub").textContent = d().sub;
+  document.title = d().seal + " Board Meeting Guide — for families";
+}
+
+function renderNotice(){
+  const grid = document.getElementById("noticeGrid");
+  grid.innerHTML =
+    "<div class=\"notice-item\"><dt>Regular meetings</dt><dd>" + d().meetingCadence + "</dd></div>" +
+    "<div class=\"notice-item\"><dt>Where</dt><dd>" + d().meetingWhere + "</dd></div>";
+  document.getElementById("noticeFoot").innerHTML =
+    "Exact dates and start times shift around holidays and breaks. Ask this guide below, or confirm on the <a href=\"" + d().officialScheduleUrl + "\" target=\"_blank\" rel=\"noopener\">official meeting schedule</a>.";
+}
+
+/* =========================================================
+   MEMBER FINDER
+   ========================================================= */
+function initials(name){
+  return name.replace(/Dr\.|Sr\.|Jr\.|"[^"]*"|\u201c[^\u201d]*\u201d/g, "").trim().split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
+}
+
+function memberBioLink(m){
+  if(d().memberBioBase && m.slug){
+    return d().memberBioBase + m.slug;
+  }
+  return d().boardPageUrl;
+}
+
+function renderMemberCard(m){
+  const url = memberBioLink(m);
+  const linkLabel = (d().memberBioBase && m.slug) ? "View official profile" : "See official board page";
+  return "<div class=\"member-card\">" +
+    "<div class=\"member-avatar\">" + initials(m.name) + "</div>" +
+    "<div class=\"member-info\">" +
+      "<p class=\"name\">" + m.name + "</p>" +
+      "<div class=\"member-badges\">" +
+        "<span class=\"badge district\">" + m.label + "</span>" +
+        (m.chair ? "<span class=\"badge chair\">Board chair</span>" : "") +
+        (m.vicechair ? "<span class=\"badge chair\">Vice chair</span>" : "") +
+      "</div>" +
+      "<p>Reach board members through the contact info below.</p>" +
+      "<p style=\"margin-top:6px;\"><a href=\"" + url + "\" target=\"_blank\" rel=\"noopener\">" + linkLabel + " \u2197</a></p>" +
+    "</div>" +
+  "</div>";
+}
+
+function renderEmptyFinder(text){
+  document.getElementById("memberResult").innerHTML = "<p class=\"finder-empty\">" + text + "</p>";
+}
+
+function renderFinder(){
+  const districtSelect = document.getElementById("districtSelect");
+  const nameSearch = document.getElementById("nameSearch");
+  document.getElementById("finderCount").textContent = d().members.length + " " + d().memberLabel + (d().members.length === 1 ? "" : "s");
+
+  districtSelect.innerHTML = "<option value=\"\">Select your " + d().memberLabel.toLowerCase() + "...</option>";
+  d().members.forEach((m, i) => {
+    const opt = document.createElement("option");
+    opt.value = String(i);
+    opt.textContent = m.label + " \u2014 " + m.name + (m.chair ? " (Chair)" : m.vicechair ? " (Vice Chair)" : "");
+    districtSelect.appendChild(opt);
+  });
+  districtSelect.value = "";
+  nameSearch.value = "";
+  renderEmptyFinder("Select your " + d().memberLabel.toLowerCase() + " above, or search by name.");
+
+  let footHtml = "";
+  if(d().districtMapUrl){
+    footHtml = "Don't know your " + d().memberLabel.toLowerCase() + "? " +
+      (d().districtMapNote ? d().districtMapNote + " " : "") +
+      "Check the <a href=\"" + d().districtMapUrl + "\" target=\"_blank\" rel=\"noopener\">official district map</a>, or contact the Board office directly.";
+  } else {
+    footHtml = "Don't know your " + d().memberLabel.toLowerCase() + "? " +
+      (d().districtMapNote ? d().districtMapNote : "Contact the Board office directly and they can look it up from your address.");
+  }
+  document.getElementById("finderFoot").innerHTML = footHtml;
+
+  districtSelect.onchange = () => {
+    nameSearch.value = "";
+    const m = d().members[Number(districtSelect.value)];
+    if(m){
+      document.getElementById("memberResult").innerHTML = renderMemberCard(m);
+    } else {
+      renderEmptyFinder("Select your " + d().memberLabel.toLowerCase() + " above, or search by name.");
+    }
+  };
+
+  nameSearch.oninput = () => {
+    const q = nameSearch.value.trim().toLowerCase();
+    if(!q){
+      districtSelect.value = "";
+      renderEmptyFinder("Select your " + d().memberLabel.toLowerCase() + " above, or search by name.");
+      return;
+    }
+    districtSelect.value = "";
+    const matches = d().members.filter(m => m.name.toLowerCase().includes(q));
+    if(matches.length === 1){
+      document.getElementById("memberResult").innerHTML = renderMemberCard(matches[0]);
+    } else if(matches.length > 1){
+      document.getElementById("memberResult").innerHTML = matches.map(renderMemberCard).join("");
+    } else {
+      renderEmptyFinder("No match. Try a different spelling, or browse by " + d().memberLabel.toLowerCase() + ".");
+    }
+  };
+}
+
+/* =========================================================
+   COMMENT DRAFTER
+   ========================================================= */
+const ROLE_TEXT = {
+  parent: "a parent",
+  grandparent: "a grandparent and family caregiver",
+  community: "a community member",
+  student: "a student",
+  staff: "a district staff member"
+};
+
+const OPEN_LINES = {
+  concerned: "Good evening. My name is {name}, and I'm {role}{school}. I want to start by saying I have real concerns about {topic}.",
+  supportive: "Good evening. My name is {name}, and I'm {role}{school}. Thank you for the chance to speak \u2014 I'm here about {topic}, and I want to share both appreciation and a request.",
+  neutral: "Good evening. My name is {name}, and I'm {role}{school}. I'm here tonight to speak about {topic}."
+};
+
+function splitLines(text){
+  return text.split("\n").map(s => s.trim()).filter(Boolean);
+}
+function sentenceCase(s){
+  if(!s) return s;
+  s = s.trim();
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+function ensureEndsWithPeriod(s){
+  s = s.trim();
+  if(!s) return s;
+  if(!/[.!?]$/.test(s)) s += ".";
+  return s;
+}
+
+function buildDraft(){
+  const role = fieldEl("cRole").value;
+  const name = fieldEl("cName").value.trim() || "[your name]";
+  const school = fieldEl("cSchool").value.trim();
+  const topic = fieldEl("cTopic").value.trim();
+  const position = fieldEl("cPosition").value.trim();
+  const reasons = splitLines(fieldEl("cReasons").value);
+  const experience = fieldEl("cExperience").value.trim();
+  const ask = fieldEl("cAsk").value.trim();
+  const tone = fieldEl("cTone").value;
+
+  let hasError = false;
+  [["cTopic", topic], ["cPosition", position], ["cAsk", ask]].forEach(([id, val]) => {
+    const field = fieldEl(id).closest(".field");
+    if(!val){
+      field.classList.add("has-error");
+      hasError = true;
+    } else {
+      field.classList.remove("has-error");
+    }
+  });
+  if(hasError) return;
+
+  const schoolPhrase = school ? (" connected to " + school) : "";
+  let draft = OPEN_LINES[tone]
+    .replace("{name}", name)
+    .replace("{role}", ROLE_TEXT[role])
+    .replace("{school}", schoolPhrase)
+    .replace("{topic}", topic);
+
+  draft += "\n\n" + ensureEndsWithPeriod(sentenceCase(position));
+
+  if(reasons.length){
+    const connectors = ["First,", "Second,", "Also,", "And finally,"];
+    const reasonSentences = reasons.slice(0, 4).map((r, i) => {
+      const lead = reasons.length > 1 ? connectors[Math.min(i, connectors.length - 1)] + " " : "";
+      return ensureEndsWithPeriod(lead + sentenceCase(r));
+    });
+    draft += "\n\n" + reasonSentences.join(" ");
+  }
+
+  if(experience){
+    draft += "\n\n" + ensureEndsWithPeriod(sentenceCase(experience));
+  }
+
+  draft += "\n\n" + "My ask tonight is this: " + ensureEndsWithPeriod(sentenceCase(ask));
+  draft += "\n\n" + "Thank you for your time, and for the work you do for our students.";
+
+  const output = document.getElementById("draftOutput");
+  output.classList.add("visible");
+  fieldEl("draftText").value = draft;
+  updateStats();
+  output.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function updateStats(){
+  const text = fieldEl("draftText").value.trim();
+  const words = text ? text.split(/\s+/).length : 0;
+  const wpm = d().speakingRateWpm;
+  const limitSeconds = d().timerSeconds;
+  const minutes = words / wpm;
+  const mm = Math.floor(minutes);
+  const ss = Math.round((minutes - mm) * 60);
+  const timeStr = mm + ":" + String(ss).padStart(2, "0");
+
+  fieldEl("wordCount").textContent = words;
+  fieldEl("estTime").textContent = timeStr;
+
+  const limitMinutes = limitSeconds / 60;
+  const badge = fieldEl("timeBadge");
+  badge.classList.remove("ok", "warn", "over");
+  const limitLabel = (limitMinutes === Math.floor(limitMinutes) ? limitMinutes + ":00" : Math.floor(limitMinutes) + ":30");
+  if(minutes <= limitMinutes){
+    badge.classList.add("ok");
+    badge.textContent = "within " + limitLabel;
+  } else if(minutes <= limitMinutes + 0.5){
+    badge.classList.add("warn");
+    badge.textContent = "a bit long \u2014 trim it";
+  } else {
+    badge.classList.add("over");
+    badge.textContent = "over time \u2014 shorten it";
+  }
+}
+
+document.getElementById("generateBtn").addEventListener("click", buildDraft);
+document.getElementById("draftText").addEventListener("input", updateStats);
+
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const textarea = fieldEl("draftText");
+  textarea.select();
+  textarea.setSelectionRange(0, 999999);
+  navigator.clipboard.writeText(textarea.value).then(() => {
+    const confirmEl = fieldEl("copyConfirm");
+    confirmEl.classList.add("show");
+    setTimeout(() => confirmEl.classList.remove("show"), 1500);
+  }).catch(() => {
+    document.execCommand("copy");
+  });
+});
+
+function renderDrafterChrome(){
+  document.getElementById("timeLimitTag").textContent = d().timeLimit;
+  const list = document.getElementById("commentChecklist");
+  const items = d().publicCommentLines.slice();
+  list.innerHTML = items.map(li => "<li>" + li + "</li>").join("");
+  timerSeconds = d().timerSeconds;
+  clearInterval(timerInterval);
+  timerInterval = null;
+  timerStart.textContent = "Start";
+  renderTimer();
+  document.getElementById("draftOutput").classList.remove("visible");
+}
+
+/* ---------- Practice timer ---------- */
+let timerSeconds = 180;
+let timerInterval = null;
+const timerDisplay = document.getElementById("timerDisplay");
+const timerStart = document.getElementById("timerStart");
+const timerReset = document.getElementById("timerReset");
+
+function renderTimer(){
+  const mm = Math.floor(Math.abs(timerSeconds) / 60);
+  const ss = Math.abs(timerSeconds) % 60;
+  const sign = timerSeconds < 0 ? "-" : "";
+  timerDisplay.textContent = sign + mm + ":" + String(ss).padStart(2, "0");
+  timerDisplay.classList.remove("warn", "over");
+  if(timerSeconds <= 0){
+    timerDisplay.classList.add("over");
+  } else if(timerSeconds <= 30){
+    timerDisplay.classList.add("warn");
+  }
+}
+
+timerStart.addEventListener("click", () => {
+  if(timerInterval){
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerStart.textContent = "Resume";
+    return;
+  }
+  timerStart.textContent = "Pause";
+  timerInterval = setInterval(() => {
+    timerSeconds -= 1;
+    renderTimer();
+  }, 1000);
+});
+
+timerReset.addEventListener("click", () => {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  timerSeconds = d().timerSeconds;
+  timerStart.textContent = "Start";
+  renderTimer();
+});
+
+/* =========================================================
+   CHAT KNOWLEDGE BASE
+   ========================================================= */
+function membersListHtml(){
+  return "<ul>" + d().members.map(m =>
+    "<li>" + m.label + " \u2014 " + m.name + (m.chair ? " (Board Chair)" : m.vicechair ? " (Vice Chair)" : "") + "</li>"
+  ).join("") + "</ul>";
+}
+
+const KB = [
+  {
+    id: "when-where",
+    roman: "I",
+    chip: "When and where do meetings happen?",
+    keywords: ["when", "time", "where", "location", "held", "address", "schedule", "date", "next meeting", "start"],
+    answer: () =>
+      "<p>" + d().meetingCadence + "</p>" +
+      "<p>" + d().meetingWhere + "</p>" +
+      "<span class=\"src-tag\">Source: " + d().name + " board meeting schedule</span>"
+  },
+  {
+    id: "speak",
+    roman: "II",
+    chip: "How do I speak at a meeting?",
+    keywords: ["speak", "comment", "public comment", "sign up", "signup", "participate", "participation", "say something", "address the board", "voice"],
+    answer: () => {
+      let html = "<p>Public participation is governed by <strong>" + d().publicCommentPolicyName + "</strong>. Here's how to get a slot:</p><ul>";
+      d().publicCommentLines.forEach(li => { html += "<li>" + li + "</li>"; });
+      html += "</ul>";
+      if(d().restrictedTopics){
+        html += "<p>One important limit: speakers may not use their time to discuss " + d().restrictedTopics + ".</p>";
+      }
+      html += "<span class=\"src-tag\">Source: " + d().name + ", " + d().publicCommentPolicyName + "</span>";
+      return html;
+    }
+  },
+  {
+    id: "watch",
+    roman: "III",
+    chip: "Can I watch from home?",
+    keywords: ["watch", "livestream", "live stream", "online", "virtual", "recording", "youtube", "video", "stream", "remote"],
+    answer: () =>
+      "<p>" + d().watchText + " <a href=\"" + d().watchUrl + "\" target=\"_blank\" rel=\"noopener\">Watch here</a>.</p>" +
+      "<p>Meetings are also open to the public in person — you don't need to sign up just to attend and watch.</p>" +
+      "<span class=\"src-tag\">Source: " + d().name + " Board Meetings page</span>"
+  },
+  {
+    id: "agenda",
+    roman: "IV",
+    chip: "Where do I find agendas and minutes?",
+    keywords: ["agenda", "minutes", "documents", "eboard", "simbli", "boarddocs", "policy", "policies", "records", "vote"],
+    answer: () => {
+      let html = "<p>" + d().agendaText + "</p>" +
+        "<p><a href=\"" + d().agendaUrl + "\" target=\"_blank\" rel=\"noopener\">View agendas and minutes</a></p>";
+      if(d().policyText && d().policyUrl){
+        html += "<p>" + d().policyText + " <a href=\"" + d().policyUrl + "\" target=\"_blank\" rel=\"noopener\">Browse board policies</a>.</p>";
+      }
+      html += "<span class=\"src-tag\">Source: " + d().name + " Board Meetings page</span>";
+      return html;
+    }
+  },
+  {
+    id: "find-mine",
+    roman: "V",
+    chip: "Who represents my area?",
+    keywords: ["my board member", "represents me", "my district", "my representative", "which district", "find my", "who is my", "represent my area", "my post"],
+    answer: () => {
+      let html = "<p>Use the <strong>Find your board member</strong> tool above \u2014 pick your " + d().memberLabel.toLowerCase() + " or search a name, and it'll show you the member and how to reach the board.</p>";
+      if(d().districtMapUrl){
+        html += "<p>Don't know your " + d().memberLabel.toLowerCase() + "? " + (d().districtMapNote || "") + " Check the <a href=\"" + d().districtMapUrl + "\" target=\"_blank\" rel=\"noopener\">official district map</a>.</p>";
+      } else if(d().districtMapNote){
+        html += "<p>" + d().districtMapNote + "</p>";
+      }
+      html += "<span class=\"src-tag\">Source: " + d().name + " Board Members page</span>";
+      return html;
+    }
+  },
+  {
+    id: "members",
+    roman: "VI",
+    chip: "Who's on the Board?",
+    keywords: ["members", "board member", "who is", "who are", "representative", "chair", "superintendent", "trustee", "list of"],
+    answer: () =>
+      "<p>The " + d().name + " Board currently has " + d().members.length + " members:</p>" +
+      membersListHtml() +
+      "<span class=\"src-tag\">Source: " + d().name + " Board Members page</span>"
+  },
+  {
+    id: "contact",
+    roman: "VII",
+    chip: "Who do I contact with questions?",
+    keywords: ["contact", "phone", "call", "email", "liaison", "reach", "help", "number"],
+    answer: () =>
+      "<p>For questions about a specific meeting, or to sign up to speak:</p><ul>" +
+      d().contactLines.map(li => "<li>" + li + "</li>").join("") +
+      "</ul>" +
+      "<span class=\"src-tag\">Source: " + d().name + " board meeting schedule page</span>"
+  },
+  {
+    id: "worksession",
+    roman: "VIII",
+    chip: "What's a Work Session vs. a Board Meeting?",
+    keywords: ["work session", "worksession", "difference", "vote", "action", "planning", "regular meeting", "committee"],
+    answer: () =>
+      "<p>" + d().worksessionText + "</p>" +
+      "<span class=\"src-tag\">Source: " + d().name + " board meeting schedule</span>"
+  },
+  {
+    id: "topics-not-allowed",
+    roman: "IX",
+    chip: "What can I not bring up in public comment?",
+    keywords: ["not allowed", "restricted", "personnel", "confidential", "student matters", "rules for speaking", "can't discuss", "prohibited"],
+    answer: () => {
+      if(d().restrictedTopics){
+        return "<p>Under " + d().publicCommentPolicyName + ", speakers should not use public comment to discuss " + d().restrictedTopics + ".</p>" +
+          "<p>Everything else related to district business is generally fair game within your time slot \u2014 just make sure you've signed up ahead of time (see \u201cHow do I speak at a meeting?\u201d).</p>" +
+          "<span class=\"src-tag\">Source: " + d().publicCommentPolicyName + "</span>";
+      }
+      return "<p>This district's published materials don't spell out specific banned topics beyond normal meeting decorum \u2014 comments should stay relevant to district business and avoid personal attacks or defamatory statements. If in doubt, contact the Board office before the meeting.</p>" +
+        "<span class=\"src-tag\">Source: " + d().name + " public comment procedures</span>";
+    }
+  }
+];
+
+const FALLBACK_TEXT = () =>
+  "<p>I don't have a solid answer for that one built in yet. I'm best at questions about meeting times and locations, speaking during public comment, watching or streaming meetings, finding agendas and minutes, Board members, and who to contact.</p>" +
+  "<p>Try rephrasing, tap one of the questions below, or reach " + d().name + " directly using the contact info above.</p>";
+
+function welcomeText(){
+  return "<p>Hi \u2014 I'm here to help you navigate " + d().name + " Board of Education meetings: when they happen, how to speak up, where to find agendas, and who represents your area (try the finder above).</p>" +
+    "<p>What would you like to know?</p>";
+}
+
+const chatLog = document.getElementById("chatLog");
+const chipsEl = document.getElementById("chips");
+const input = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+function addMessage(role, html){
+  const wrap = document.createElement("div");
+  wrap.className = "msg " + role;
+  if(role === "bot"){
+    const label = document.createElement("div");
+    label.className = "bot-label";
+    label.textContent = "Board guide";
+    wrap.appendChild(label);
+  }
+  const bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.innerHTML = html;
+  wrap.appendChild(bubble);
+  chatLog.appendChild(wrap);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+function renderChips(){
+  chipsEl.innerHTML = "";
+  KB.forEach(topic => {
+    const chip = document.createElement("button");
+    chip.className = "chip";
+    chip.innerHTML = "<span class=\"num\">" + topic.roman + ".</span> " + topic.chip;
+    chip.addEventListener("click", () => {
+      addMessage("user", escapeHtml(topic.chip));
+      setTimeout(() => addMessage("bot", topic.answer()), 220);
+    });
+    chipsEl.appendChild(chip);
+  });
+}
+
+function findAnswer(text){
+  const q = text.toLowerCase();
+  let best = null;
+  let bestScore = 0;
+  KB.forEach(topic => {
+    let score = 0;
+    topic.keywords.forEach(kw => {
+      if(q.includes(kw)) score += kw.split(" ").length;
+    });
+    if(score > bestScore){
+      bestScore = score;
+      best = topic;
+    }
+  });
+  return best ? best.answer() : FALLBACK_TEXT();
+}
+
+function handleSend(){
+  const text = input.value.trim();
+  if(!text) return;
+  addMessage("user", escapeHtml(text));
+  input.value = "";
+  setTimeout(() => addMessage("bot", findAnswer(text)), 250);
+}
+
+sendBtn.addEventListener("click", handleSend);
+input.addEventListener("keydown", e => {
+  if(e.key === "Enter") handleSend();
+});
+
+/* =========================================================
+   MASTER RENDER
+   ========================================================= */
+function renderAll(){
+  renderSwitcher();
+  renderMasthead();
+  renderNotice();
+  renderFinder();
+  renderDrafterChrome();
+  chatLog.innerHTML = "";
+  addMessage("bot", welcomeText());
+  renderChips();
+}
+
+renderAll();
+</script>
+</body>
+</html>
